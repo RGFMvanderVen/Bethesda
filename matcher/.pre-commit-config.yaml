@@ -1,0 +1,25 @@
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+    -   id: check-yaml
+    -   id: check-added-large-files
+    -   id: detect-private-key
+- repo: https://github.com/astral-sh/ruff-pre-commit
+  rev: v0.8.1
+  hooks:
+    # Run the linter.
+    - id: ruff
+      args: [ --fix ]
+      name: Ruff linter
+    # Sort imports.
+    - id: ruff
+      args: [--select, I, --fix]
+      name: Ruff import sorter
+    # Run the formatter.
+    - id: ruff-format
+      name: Ruff formatter
+-   repo: https://github.com/kynan/nbstripout
+    rev: 0.7.1
+    hooks:
+    -   id: nbstripout
